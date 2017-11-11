@@ -19,13 +19,13 @@ app.listen(PORT, () => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Logger
+app.use(logger("dev"));
+
 // view templates
 app.set("views", path.join(__dirname, "views"));
 // templating engine
 app.set("view engine", "ejs");
-
-// Logger
-app.use(logger("dev"));
 
 app.use("/static", express.static(path.join(__dirname, "public")));
 //  index route!
